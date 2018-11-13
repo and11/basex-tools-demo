@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>basex-tools-demo</artifactId>
+        <groupId>com.github.and11</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>language-pack</artifactId>
+    <packaging>pom</packaging>
+
+    <properties>
+        <language>ru</language>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.and11</groupId>
+            <artifactId>xml-spec</artifactId>
+            <version>${project.version}</version>
+            <type>xml</type>
+        </dependency>
+        <dependency>
+            <groupId>com.github.and11</groupId>
+            <artifactId>xquery-functions</artifactId>
+            <version>${project.version}</version>
+            <type>xar</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.and11</groupId>
+                <artifactId>basex-maven-plugin</artifactId>
+                <version>${project.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>create</goal>
+                            <goal>provision</goal>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>repo:mvn:com.github.and11/xquery-functions/${project.version}/xar@xar</descriptor>
+                                <descriptor>repo:file:///${project.basedir}/src/xqm/i18n-lang-packs.xqm@xqm</descriptor>
+                                <descriptor>doc:mvn:com.github.and11/xml-spec/${project.version}/xml</descriptor>
+                            </descriptors>
+                            <functions>
+                                <function>
+                                    <descriptor>xqf:xml:_#extract-language-packs</descriptor>
+                                    <arguments>
+                                        <argument>${language}</argument>
+                                    </arguments>
+                                    <output>${project.build.directory}/language-pack.${language}.xml</output>
+                                </function>
+                            </functions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-artifacts</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>${project.build.directory}/language-pack.${language}.xml</file>
+                                    <type>xml</type>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

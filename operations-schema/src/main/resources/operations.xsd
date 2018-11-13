@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           targetNamespace="http://my-schemas/operations/v1"
+           xmlns="http://my-schemas/operations/v1"
+           xmlns:this="http://my-schemas/operations/v1"
+           xmlns:common="http://my-schemas/common/v1"
+           xmlns:i18n="http://my-schemas/i18n/v1"
+>
+
+    <xs:import namespace="http://my-schemas/common/v1"></xs:import>
+    <xs:import namespace="http://my-schemas/i18n/v1"></xs:import>
+
+    <xs:element name="operations">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="this:operation" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="operation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="i18n:Message"/>
+                <xs:element ref="i18n:description" minOccurs="1" maxOccurs="1"/>
+                <xs:any processContents="strict" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="common:resource"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="http-endpoint">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:any processContents="strict" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="path" type="xs:string"/>
+            <xs:attribute ref="common:resourceRef"/>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>
