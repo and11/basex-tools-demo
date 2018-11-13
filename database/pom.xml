@@ -46,7 +46,7 @@
                 </executions>
                 <configuration>
                     <databaseName>mydb</databaseName>
-                    <defautlCollection>myCollection</defautlCollection>
+                    <defaultCollection>myCollection</defaultCollection>
                     <descriptors>
                         <descriptor>scan-deps:.+/xar</descriptor>
                         <descriptor>doc:mvn:com.github.and11/xml/${project.version}/xml</descriptor>
