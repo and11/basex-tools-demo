@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<op:operation
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:common="http://my-schemas/common/v1"
+        xmlns:i18n="http://my-schemas/i18n/v1"
+        xmlns:op="http://my-schemas/operations/v1" common:resource="operationId"
+
+        xsi:schemaLocation="
+            http://my-schemas/common/v1 http://mydomain.com/common-1.0.xsd
+            http://my-schemas/i18n/v1 http://mydomain.com/i18n-1.0.xsd"
+>
+
+    <op:name>
+        <i18n:text i18n:lang="ru">
+            Название операции
+        </i18n:text>
+    </op:name>
+    <i18n:description>
+        <i18n:text i18n:lang="ru">
+            Тест на русском
+        </i18n:text>
+        <i18n:text i18n:lang="en">
+            Text in english
+        </i18n:text>
+    </i18n:description>
+</op:operation>
+

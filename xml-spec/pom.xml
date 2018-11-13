@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>com.github.and11</groupId>
-            <artifactId>domain-schema</artifactId>
+            <artifactId>spec-schema</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
@@ -52,7 +52,7 @@
                 <configuration>
                     <schemas>
                         <includes>
-                            <include>.*domain-schema.*</include>
+                            <include>.*spec-schema.*</include>
                         </includes>
                     </schemas>
                     <resources>

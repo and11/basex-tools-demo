@@ -22,7 +22,7 @@
         <module>operations-schema</module>
         <module>xml-spec</module>
         <module>language-pack</module>
-        <module>domain-schema</module>
+        <module>spec-schema</module>
     </modules>
 
 

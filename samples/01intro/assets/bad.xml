@@ -1,0 +1,10 @@
+<root>
+    <operation id="2">
+        <name>операция 2</name>
+        <description>длинное описание операции</description>
+    </operation>
+    <operation id="3">
+        <name>операция 3</name>
+        <description></description>
+    </operation>
+</root>
