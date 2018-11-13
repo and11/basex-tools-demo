@@ -20,7 +20,7 @@
         <module>database</module>
         <module>common-schema</module>
         <module>operations-schema</module>
-        <module>xml-spec</module>
+        <module>spec-xml</module>
         <module>language-pack</module>
         <module>spec-schema</module>
     </modules>
