@@ -7,6 +7,7 @@ import com.github.and11.basex.utils.test.annotations.Configuration;
 import com.github.and11.basex.utils.test.annotations.Suites;
 import org.junit.runner.RunWith;
 
+import static com.github.and11.basex.utils.CoreOptions.createDatabase;
 import static com.github.and11.basex.utils.CoreOptions.document;
 import static com.github.and11.basex.utils.CoreOptions.maven;
 import static com.github.and11.basex.utils.CoreOptions.options;
@@ -20,10 +21,9 @@ public class XQTestIT {
     @Configuration
     public static Option[] opts() {
         return options(
+                createDatabase(),
                 repository(url(System.getProperty("artifact"))).xar(),
                 document(url("classpath:test-data.xml")).collection("test")
         );
     }
-
-
 }

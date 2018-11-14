@@ -61,6 +61,7 @@
                 <artifactId>basex-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
+                    <databaseName>maindb</databaseName>
                     <descriptors>
                         <descriptor>doc:mvn:com.github.and11/language-pack/${project.version}/xml@language-packs</descriptor>
                         <descriptor>doc:mvn:com.github.and11/spec-xml/${project.version}/xml@spec</descriptor>

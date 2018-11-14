@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import static com.github.and11.basex.utils.CoreOptions.database;
 import static com.github.and11.basex.utils.CoreOptions.document;
 import static com.github.and11.basex.utils.CoreOptions.mavenBundle;
+import static com.github.and11.basex.utils.CoreOptions.openDatabase;
 import static com.github.and11.basex.utils.CoreOptions.options;
 import static com.github.and11.basex.utils.CoreOptions.repository;
 import static com.github.and11.basex.utils.CoreOptions.url;
@@ -18,12 +19,13 @@ import static com.github.and11.basex.utils.CoreOptions.url;
 public class XQTestIT {
 
     @Configuration
-    public static Option[] opts() {
+    public static Option[] configuration() {
         return options(
+                database(url(System.getProperty("artifact"))),
+                openDatabase("maindb"),
                 repository(mavenBundle().groupId("com.github.and11")
-                        .artifactId("xquery-functions").type("xar").versionAsInProject()).xar()
+                        .artifactId("xquery-functions").type("xar")
+                        .versionAsInProject()).xar()
         );
     }
-
-
 }
