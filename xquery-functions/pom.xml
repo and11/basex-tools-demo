@@ -16,7 +16,6 @@
         <dependency>
             <groupId>com.github.and11</groupId>
             <artifactId>basex-junit</artifactId>
-            <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -39,7 +38,6 @@
             <plugin>
                 <groupId>com.github.and11</groupId>
                 <artifactId>basex-maven-plugin</artifactId>
-                <version>${project.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                     <classes>

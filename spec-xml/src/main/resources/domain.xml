@@ -2,6 +2,7 @@
 <op:operation
         xmlns:common="http://my-schemas/common/v1"
         xmlns:i18n="http://my-schemas/i18n/v1"
+        xmlns:x="http://www.w3.org/1999/xhtml"
         xmlns:op="http://my-schemas/operations/v1" common:resource="1">
 
     <op:name>
@@ -11,7 +12,7 @@
     </op:name>
     <i18n:description>
         <i18n:text i18n:lang="ru">
-            Тест на русском
+            Тест на русском со <x:h1>вставками</x:h1> разметки
         </i18n:text>
         <!--<i18n:text i18n:lang="ru">-->
             <!--Тест на русском-->

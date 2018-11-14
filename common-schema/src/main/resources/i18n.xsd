@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
            attributeFormDefault="qualified" targetNamespace="http://my-schemas/i18n/v1" xmlns="http://my-schemas/i18n/v1"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.1"
            xmlns:i18n="http://my-schemas/i18n/v1">
 
     <xs:attribute name="lang">
@@ -12,15 +13,21 @@
         </xs:simpleType>
     </xs:attribute>
 
-    <xs:element name="text">
-        <xs:complexType>
-            <xs:simpleContent>
-                <xs:extension base="xs:string">
-                    <xs:attribute ref="i18n:lang" use="required"/>
-                </xs:extension>
-            </xs:simpleContent>
-        </xs:complexType>
-    </xs:element>
+    <xs:complexType mixed="true" name="LocalizedText">
+        <xs:sequence>
+        	<xs:annotation>
+				<xs:appinfo>
+					<jaxb:property name="elements" />
+				</xs:appinfo>
+			</xs:annotation>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="strict"></xs:any>
+            </xs:choice>
+
+        </xs:sequence>
+        <xs:attribute ref="i18n:lang" use="required"/>
+    </xs:complexType>
+    <xs:element name="text" type="i18n:LocalizedText" />
 
     <xs:complexType name="Message">
         <xs:sequence>

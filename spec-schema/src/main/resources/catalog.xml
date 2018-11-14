@@ -10,4 +10,8 @@
     <system systemId="operations.xsd" uri="./operations-schema-${project.version}.xsd"/>
     <uri name="http://my-schemas/operations/v1" uri="./operations-schema-${project.version}.xsd" />
 
+    <uri name="http://www.w3.org/1999/xhtml" uri="./common-schema-${project.version}-xhtml.xsd" />
+    <uri name="http://www.w3.org/XML/1998/namespace" uri="./common-schema-${project.version}-xml.xsd" />
+
+
 </catalog>

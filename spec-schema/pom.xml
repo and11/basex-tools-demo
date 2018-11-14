@@ -16,22 +16,31 @@
         <dependency>
             <groupId>com.github.and11</groupId>
             <artifactId>operations-schema</artifactId>
-            <version>${project.version}</version>
             <type>xsd</type>
         </dependency>
         <dependency>
             <groupId>com.github.and11</groupId>
             <artifactId>common-schema</artifactId>
-            <version>${project.version}</version>
             <type>xsd</type>
             <classifier>common</classifier>
         </dependency>
         <dependency>
             <groupId>com.github.and11</groupId>
             <artifactId>common-schema</artifactId>
-            <version>${project.version}</version>
             <type>xsd</type>
             <classifier>i18n</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.github.and11</groupId>
+            <artifactId>common-schema</artifactId>
+            <type>xsd</type>
+            <classifier>xml</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.github.and11</groupId>
+            <artifactId>common-schema</artifactId>
+            <type>xsd</type>
+            <classifier>xhtml</classifier>
         </dependency>
     </dependencies>
 

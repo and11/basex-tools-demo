@@ -16,7 +16,6 @@
         <dependency>
             <groupId>com.github.and11</groupId>
             <artifactId>common-schema</artifactId>
-            <version>${project.version}</version>
             <type>xsd</type>
         </dependency>
     </dependencies>

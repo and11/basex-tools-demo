@@ -53,6 +53,16 @@
                                     <type>xsd</type>
                                     <classifier>i18n</classifier>
                                 </artifact>
+                                <artifact>
+                                    <file>${project.build.directory}/xsd/xhtml1-strict.xsd</file>
+                                    <type>xsd</type>
+                                    <classifier>xhtml</classifier>
+                                </artifact>
+                                <artifact>
+                                    <file>${project.build.directory}/xsd/xml.xsd</file>
+                                    <type>xsd</type>
+                                    <classifier>xml</classifier>
+                                </artifact>
                             </artifacts>
                         </configuration>
                     </execution>

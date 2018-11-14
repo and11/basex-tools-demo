@@ -16,13 +16,11 @@
         <dependency>
             <groupId>com.github.and11</groupId>
             <artifactId>xquery-functions</artifactId>
-            <version>${project.version}</version>
             <type>xar</type>
         </dependency>
         <dependency>
             <groupId>com.github.and11</groupId>
-            <artifactId>xml-spec</artifactId>
-            <version>${project.version}</version>
+            <artifactId>spec-xml</artifactId>
             <type>xml</type>
         </dependency>
     </dependencies>
@@ -32,7 +30,6 @@
             <plugin>
                 <groupId>com.github.and11</groupId>
                 <artifactId>basex-maven-plugin</artifactId>
-                <version>${project.version}</version>
                 <extensions>true</extensions>
                 <executions>
                     <execution>
@@ -40,18 +37,17 @@
                         <goals>
                             <goal>create</goal>
                             <goal>provision</goal>
-                            <goal>database</goal>
                         </goals>
+                        <configuration>
+                            <databaseName>mydb</databaseName>
+                            <defaultCollection>myCollection</defaultCollection>
+                            <descriptors>
+                                <descriptor>scan-deps:.+/xar</descriptor>
+                                <descriptor>doc:mvn:com.github.and11/xml/${project.version}/xml</descriptor>
+                            </descriptors>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <databaseName>mydb</databaseName>
-                    <defaultCollection>myCollection</defaultCollection>
-                    <descriptors>
-                        <descriptor>scan-deps:.+/xar</descriptor>
-                        <descriptor>doc:mvn:com.github.and11/xml/${project.version}/xml</descriptor>
-                    </descriptors>
-                </configuration>
             </plugin>
         </plugins>
     </build>
