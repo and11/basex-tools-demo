@@ -20,6 +20,12 @@
         <dependencies>
             <dependency>
                 <groupId>com.github.and11</groupId>
+                <artifactId>language-pack</artifactId>
+                <version>${project.version}</version>
+                <type>xml</type>
+            </dependency>
+            <dependency>
+                <groupId>com.github.and11</groupId>
                 <artifactId>spec-xml</artifactId>
                 <version>${project.version}</version>
                 <type>xml</type>

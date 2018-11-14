@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>database</artifactId>
-    <packaging>pom</packaging>
+    <packaging>basex</packaging>
 
     <dependencies>
         <dependency>
@@ -23,32 +23,70 @@
             <artifactId>spec-xml</artifactId>
             <type>xml</type>
         </dependency>
+        <dependency>
+            <groupId>com.github.and11</groupId>
+            <artifactId>language-pack</artifactId>
+            <type>xml</type>
+        </dependency>
+        <dependency>
+            <groupId>com.github.and11</groupId>
+            <artifactId>basex-junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.and11</groupId>
+            <artifactId>xquery-functions</artifactId>
+            <type>xar</type>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>com.github.and11</groupId>
-                <artifactId>basex-maven-plugin</artifactId>
-                <extensions>true</extensions>
+                <groupId>org.apache.servicemix.tooling</groupId>
+                <artifactId>depends-maven-plugin</artifactId>
+                <version>1.4.0</version>
                 <executions>
                     <execution>
-                        <phase>prepare-package</phase>
+                        <id>generate-depends-file</id>
                         <goals>
-                            <goal>create</goal>
-                            <goal>provision</goal>
+                            <goal>generate-depends-file</goal>
                         </goals>
-                        <configuration>
-                            <databaseName>mydb</databaseName>
-                            <defaultCollection>myCollection</defaultCollection>
-                            <descriptors>
-                                <descriptor>scan-deps:.+/xar</descriptor>
-                                <descriptor>doc:mvn:com.github.and11/xml/${project.version}/xml</descriptor>
-                            </descriptors>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.github.and11</groupId>
+                <artifactId>basex-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <descriptors>
+                        <descriptor>doc:mvn:com.github.and11/language-pack/${project.version}/xml@language-packs</descriptor>
+                        <descriptor>doc:mvn:com.github.and11/spec-xml/${project.version}/xml@spec</descriptor>
+                    </descriptors>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.20</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <failIfNoTests>true</failIfNoTests>
+                    <systemPropertyVariables>
+                        <artifact>file:///${project.build.directory}/${project.build.finalName}.basex</artifact>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
