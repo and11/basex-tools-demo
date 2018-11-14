@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
 
-    <system systemId="common.xsd" uri="./common-schema-${project.version}-common.xsd"/>
-    <uri name="http://my-schemas/common/v1" uri="./common-schema-${project.version}-common.xsd" />
+    <system systemId="common.xsd" uri="./common-schema-${common-schema.version}-common.xsd"/>
+    <uri name="http://my-schemas/common/v1" uri="./common-schema-${common-schema.version}-common.xsd" />
 
     <system systemId="i18n.xsd" uri="./common-schema-${project.version}-i18n.xsd"/>
-    <uri name="http://my-schemas/i18n/v1" uri="./common-schema-${project.version}-i18n.xsd" />
+    <uri name="http://my-schemas/i18n/v1" uri="./common-schema-${common-schema.version}-i18n.xsd" />
 
-    <system systemId="operations.xsd" uri="./operations-schema-${project.version}.xsd"/>
-    <uri name="http://my-schemas/operations/v1" uri="./operations-schema-${project.version}.xsd" />
+    <system systemId="operations.xsd" uri="./operations-schema-${operations-schema.version}.xsd"/>
+    <uri name="http://my-schemas/operations/v1" uri="./operations-schema-${operations-schema.version}.xsd" />
 
-    <uri name="http://www.w3.org/1999/xhtml" uri="./common-schema-${project.version}-xhtml.xsd" />
-    <uri name="http://www.w3.org/XML/1998/namespace" uri="./common-schema-${project.version}-xml.xsd" />
+    <uri name="http://www.w3.org/1999/xhtml" uri="./common-schema-${common-schema.version}-xhtml.xsd" />
+    <uri name="http://www.w3.org/XML/1998/namespace" uri="./common-schema-${common-schema.version}-xml.xsd" />
 
 
 </catalog>

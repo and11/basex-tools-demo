@@ -11,22 +11,29 @@
 
     <artifactId>spec-schema</artifactId>
 
+    <properties>
+        <common-schema.version>1.0-SNAPSHOT</common-schema.version>
+        <operations-schema.version>1.0-SNAPSHOT</operations-schema.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.github.and11</groupId>
             <artifactId>operations-schema</artifactId>
             <type>xsd</type>
+            <version>${operations-schema.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.and11</groupId>
             <artifactId>common-schema</artifactId>
             <type>xsd</type>
+            <version>${common-schema.version}</version>
             <classifier>common</classifier>
         </dependency>
         <dependency>
             <groupId>com.github.and11</groupId>
             <artifactId>common-schema</artifactId>
+            <version>${common-schema.version}</version>
             <type>xsd</type>
             <classifier>i18n</classifier>
         </dependency>
@@ -34,12 +41,14 @@
             <groupId>com.github.and11</groupId>
             <artifactId>common-schema</artifactId>
             <type>xsd</type>
+            <version>${common-schema.version}</version>
             <classifier>xml</classifier>
         </dependency>
         <dependency>
             <groupId>com.github.and11</groupId>
             <artifactId>common-schema</artifactId>
             <type>xsd</type>
+            <version>${common-schema.version}</version>
             <classifier>xhtml</classifier>
         </dependency>
     </dependencies>
