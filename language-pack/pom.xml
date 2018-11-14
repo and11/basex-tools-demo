@@ -32,6 +32,23 @@
     <build>
         <plugins>
             <plugin>
+                <artifactId>maven-help-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <output>${project.build.directory}/settings.xml</output>
+                    <showPasswords>true</showPasswords>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>effective-settings</id>
+                        <goals>
+                            <goal>effective-settings</goal>
+                        </goals>
+                        <phase>prepare-package</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>com.github.and11</groupId>
                 <artifactId>basex-maven-plugin</artifactId>
                 <executions>
@@ -42,6 +59,7 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
+                            <mavenSettings>${project.build.directory}/settings.xml</mavenSettings>
                             <descriptors>
                                 <descriptor>repo:mvn:com.github.and11/xquery-functions/${project.version}/xar@xar</descriptor>
                                 <descriptor>repo:file:///${project.basedir}/src/xqm/i18n-lang-packs.xqm@xqm</descriptor>

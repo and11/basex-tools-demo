@@ -36,10 +36,28 @@
                 </executions>
             </plugin>
             <plugin>
+                <artifactId>maven-help-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <output>${project.build.directory}/settings.xml</output>
+                    <showPasswords>true</showPasswords>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>effective-settings</id>
+                        <goals>
+                            <goal>effective-settings</goal>
+                        </goals>
+                        <phase>pre-integration-test</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>com.github.and11</groupId>
                 <artifactId>basex-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
+                    <mavenSettings>${project.build.directory}/settings.xml</mavenSettings>
                     <classes>
                         <class>my.test.MyTestClass</class>
                     </classes>
