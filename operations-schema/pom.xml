@@ -12,14 +12,6 @@
     <artifactId>operations-schema</artifactId>
     <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.github.and11</groupId>
-            <artifactId>common-schema</artifactId>
-            <type>xsd</type>
-        </dependency>
-    </dependencies>
-
     <build>
         <plugins>
             <plugin>

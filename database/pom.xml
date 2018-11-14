@@ -102,6 +102,7 @@
                     <failIfNoTests>true</failIfNoTests>
                     <systemPropertyVariables>
                         <artifact>file:///${project.build.directory}/${project.build.finalName}.basex</artifact>
+                        <maven.settings>${project.build.directory}/settings.xml</maven.settings>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
